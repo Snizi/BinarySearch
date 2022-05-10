@@ -1,20 +1,28 @@
-def pesquisa_binaria(lista, item):
-    baixo = 0
-    alto = len(lista) - 1
+def binary_search(list_obj, target_element):
+    lower = 0
+    high = len(list_obj) - 1
+    
 
-    while baixo <= alto:
-        meio = (baixo + alto) / 2
-        chute = lista[int(meio)]
-        if chute ==item:
-            return meio
-        if chute > item:
-            alto = meio - 1
+    while lower <= high:
+
+        middle = (lower + high) // 2
+
+        guess = list_obj[middle]
+
+
+        if guess == target_element:
+            return guess
+        if guess > target_element:
+            high = middle + 1
         else:
-            baixo = meio + 1
+            lower = middle - 1
+    
     return None
 
-lista = [1, 3, 5, 7, 9]
 
 
-print(pesquisa_binaria(lista, 3))
-print(pesquisa_binaria(lista, -1))
+my_list = [1, 3, 5, 7, 9]
+
+print(binary_search(my_list, 3))
+
+    
